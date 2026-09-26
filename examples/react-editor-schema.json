@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SDCanvasLayoutSchema",
+  "description": "Universal JSON layout schema for SD Canvas and visual React editors.",
+  "type": "object",
+  "required": ["width", "height", "elements"],
+  "properties": {
+    "width": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 16384,
+      "description": "Canvas width in pixels"
+    },
+    "height": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 16384,
+      "description": "Canvas height in pixels"
+    },
+    "background": {
+      "description": "Solid hex/rgb string, or gradient/image object",
+      "oneOf": [
+        { "type": "string" },
+        {
+          "type": "object",
+          "properties": {
+            "type": { "type": "string", "enum": ["gradient", "linear", "radial", "image", "color"] },
+            "direction": { "type": "string" },
+            "colors": { "type": "array", "items": { "type": "string" } },
+            "src": { "type": "string" }
+          }
+        }
+      ]
+    },
+    "elements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type"],
+        "properties": {
+          "id": { "type": "string" },
+          "type": {
+            "type": "string",
+            "enum": ["text", "image", "rectangle", "rect", "circle", "line", "gradient", "shape", "path"]
+          },
+          "x": { "type": "number" },
+          "y": { "type": "number" },
+          "width": { "type": "number" },
+          "height": { "type": "number" },
+          "zIndex": { "type": "integer" },
+          "opacity": { "type": "number", "minimum": 0, "maximum": 1 },
+          "rotation": { "type": "number" },
+          "shadowColor": { "type": "string" },
+          "shadowBlur": { "type": "number" },
+          "shadowOffsetX": { "type": "number" },
+          "shadowOffsetY": { "type": "number" },
+          "text": { "type": "string" },
+          "fontFamily": { "type": "string" },
+          "fontSize": { "type": "number" },
+          "fontWeight": { "type": ["string", "number"] },
+          "color": { "type": "string" },
+          "align": { "type": "string", "enum": ["left", "center", "right"] },
+          "wrap": { "type": "boolean" },
+          "ellipsis": { "type": "boolean" },
+          "src": { "type": "string" },
+          "fit": { "type": "string", "enum": ["cover", "contain", "fill", "none"] },
+          "circle": { "type": "boolean" },
+          "radius": { "type": ["number", "array"] },
+          "fill": { "type": ["string", "object"] },
+          "stroke": { "type": "string" },
+          "strokeWidth": { "type": "number" }
+        }
+      }
+    }
+  },
+  "example": {
+    "width": 1200,
+    "height": 500,
+    "background": {
+      "type": "gradient",
+      "direction": "to bottom right",
+      "colors": ["#0f172a", "#1e293b"]
+    },
+    "elements": [
+      {
+        "type": "rectangle",
+        "id": "card",
+        "x": 40,
+        "y": 40,
+        "width": 1120,
+        "height": 420,
+        "radius": 24,
+        "fill": "#1e293b",
+        "stroke": "#3b82f6",
+        "strokeWidth": 2
+      },
+      {
+        "type": "image",
+        "id": "avatar",
+        "src": "{{avatar}}",
+        "x": 80,
+        "y": 110,
+        "width": 180,
+        "height": 180,
+        "circle": true
+      },
+      {
+        "type": "text",
+        "id": "welcome_text",
+        "x": 300,
+        "y": 160,
+        "text": "Welcome {{username}}",
+        "fontFamily": "Inter, sans-serif",
+        "fontSize": 48,
+        "fontWeight": "bold",
+        "color": "#ffffff"
+      }
+    ]
+  }
+}

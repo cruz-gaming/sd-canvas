@@ -1,0 +1,78 @@
+{
+  "name": "sd-canvas",
+  "version": "1.0.0",
+  "description": "Universal JSON-based canvas rendering engine for Node.js and web applications.",
+  "type": "module",
+  "main": "./src/index.js",
+  "exports": {
+    ".": {
+      "import": "./src/index.js",
+      "default": "./src/index.js"
+    },
+    "./presets": {
+      "import": "./src/presets/index.js",
+      "default": "./src/presets/index.js"
+    },
+    "./errors": {
+      "import": "./src/errors/index.js",
+      "default": "./src/errors/index.js"
+    },
+    "./validation": {
+      "import": "./src/validation/validateLayout.js",
+      "default": "./src/validation/validateLayout.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "sd-canvas": "./bin/sd-canvas.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "test": "node --test tests/**/*.test.js",
+    "example": "node examples/basic.js",
+    "example:welcome": "node examples/welcome.js",
+    "example:profile": "node examples/profile.js",
+    "example:levelup": "node examples/levelup.js",
+    "example:rank": "node examples/rank.js",
+    "example:achievement": "node examples/achievement.js",
+    "example:svg": "node examples/svg-export.js"
+  },
+  "keywords": [
+    "canvas",
+    "sd-canvas",
+    "stacks-development",
+    "graphics",
+    "image-generation",
+    "discord",
+    "discord-canvas",
+    "welcome-card",
+    "rank-card",
+    "profile-card",
+    "svg",
+    "png",
+    "node-canvas",
+    "rendering-engine"
+  ],
+  "author": "Stacks Development",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stacks-development/sd-canvas.git"
+  },
+  "bugs": {
+    "url": "https://github.com/stacks-development/sd-canvas/issues"
+  },
+  "homepage": "https://github.com/stacks-development/sd-canvas#readme",
+  "dependencies": {
+    "@napi-rs/canvas": "^0.1.60"
+  }
+}
