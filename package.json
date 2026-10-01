@@ -24,7 +24,7 @@
     "./package.json": "./package.json"
   },
   "bin": {
-    "sd-canvas": "./bin/sd-canvas.js"
+    "sd-canvas": "bin/sd-canvas.js"
   },
   "files": [
     "src",
@@ -62,17 +62,22 @@
     "node-canvas",
     "rendering-engine"
   ],
-  "author": "Stacks Development",
+  "author": "Cruzdev",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/stacks-development/sd-canvas.git"
+    "url": "git+https://github.com/cruz-gaming/sd-canvas.git"
   },
   "bugs": {
-    "url": "https://github.com/stacks-development/sd-canvas/issues"
+    "url": "https://github.com/cruz-gaming/sd-canvas/issues"
   },
-  "homepage": "https://github.com/stacks-development/sd-canvas#readme",
+  "homepage": "https://github.com/cruz-gaming/sd-canvas#readme",
   "dependencies": {
     "@napi-rs/canvas": "^0.1.60"
-  }
+  },
+  "directories": {
+    "example": "examples",
+    "test": "tests"
+  },
+  "devDependencies": {}
 }
